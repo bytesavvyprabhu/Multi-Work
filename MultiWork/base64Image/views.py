@@ -1,3 +1,8 @@
+import requests
 from django.shortcuts import render
+import ipapi
 
-# Create your views here.
+def base64view(request):
+    return render(request, 'base64.html', context)
+
+
