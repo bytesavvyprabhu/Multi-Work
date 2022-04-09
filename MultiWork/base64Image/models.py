@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+class Uploadimage(models.Model):
+    image = models.ImageField(blank= True , null= True,upload_to='base64images')

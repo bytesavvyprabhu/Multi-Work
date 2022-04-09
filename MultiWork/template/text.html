@@ -6,11 +6,9 @@
 </head>
 <body>
 <h1>Base64 file</h1>
-<form action="Upload" method="POST" enctype="multipart/form-data">
-    {%csrf_token%}
+<form action="Upload Image" method="POST" enctype="multipart/form-data">
     <input type="file" name ="Image">
-    <input type="submit" value="Upload">
-    <p>Your base64 code after image conversion : {{data}}</p>
+    <input type="submit"name="base64">
 </form>
 </body>
 </html>

@@ -1,6 +1,7 @@
 from django.urls import path, include
-from . import views
+from .views import Index, Upload
 
 urlpatterns = [
-    path('base_64/', views.base64view , name='base64'),
+    path('', Index, name='base64'),
+    path('Upload', Upload, name='Upload')
     ]
