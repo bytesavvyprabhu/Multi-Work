@@ -1,17 +1,19 @@
 from django.shortcuts import redirect, render
-import base64
+import base64 , os
 from .forms import UserImageForm
 from .models import Uploadimage
 def Index(request):
     return render(request, 'base64.html')
 def Upload(request):
     pic = request.FILES['Image']
-    b = 0
     a=Uploadimage()
     a.image=pic
     a.save()
-    with open(pic, "rb") as img_file:
-        b = base64.b64encode(img_file.read())
-    context = {"data": b}
+    b = "C:/Users/pds/PycharmProjects/Multi-Work/MultiWork/media/base64images/"
+    path = os.path.join(b,str(pic))
+    with open(path, "rb") as img_file:
+        data = base64.b64encode(img_file.read())
     print(request.FILES)
-    return render(request, 'base64.html', context)
+    context = {"data":data}
+    os.remove(path)
+    return render(request, 'base64.html',context)
